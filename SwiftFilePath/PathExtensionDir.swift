@@ -49,7 +49,7 @@ extension Path: SequenceType {
         var loadError: NSError?
         if let contents =   self.fileManager.contentsOfDirectoryAtPath(path_string
           , error: &loadError) {
-            return contents.map({ [unowned self] content in
+            return contents.map({ content in
               return self.content(content as! String)
             })
         } else if let error = loadError {
